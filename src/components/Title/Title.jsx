@@ -1,8 +1,6 @@
-import React from 'react';
-import StyledTitle from './Title.styles';
+import React from "react";
+import { StyledTitle } from "./TitleStyles";
 
-function Title() {
+export const Title = () => {
   return <StyledTitle>Levo um casaquinho?</StyledTitle>;
-}
-
-export default Title;
+};

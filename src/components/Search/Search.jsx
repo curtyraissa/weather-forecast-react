@@ -1,13 +1,11 @@
-import React from 'react';
-import { StyledSearch, Input, Button } from './Search.styles';
+import React from "react";
+import { StyledSearch, Input, Button } from "./SearchStyles";
 
-function Search() {
+export const Search = () => {
   return (
     <StyledSearch>
       <Input type="text" placeholder="Digite o nome da cidade" />
       <Button>Buscar</Button>
     </StyledSearch>
   );
-}
-
-export default Search;
+};

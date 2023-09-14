@@ -29,5 +29,3 @@ export const StyledOverview = styled.div`
     font-size: 32px;
   }
 `;
-
-export default StyledOverview;

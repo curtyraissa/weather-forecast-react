@@ -1,13 +1,11 @@
-import StyledGraphic from "./Graphic.styles";
+import { StyledGraphic } from "./GraphicStyles";
 
-const Graphic = () => {
-    return (
-        <StyledGraphic>
+export const Graphic = () => {
+  return (
+    <StyledGraphic>
       <div className="graphic">
         {/* Conteúdo gráfico será adicionado aqui */}
       </div>
-      </StyledGraphic>
-    );
-  };
-  
-  export default Graphic;
+    </StyledGraphic>
+  );
+};

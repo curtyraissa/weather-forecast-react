@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
 export const StyledGraphic = styled.div`
-
-.graphic {
+  .graphic {
     /*estilos de gráfico*/
   }
-  `
-
-export default StyledGraphic;
+`;

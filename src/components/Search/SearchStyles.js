@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledSearch = styled.div`
   display: flex;
@@ -20,5 +20,3 @@ export const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
 `;
-
-export default StyledSearch;

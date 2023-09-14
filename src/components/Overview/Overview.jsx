@@ -1,18 +1,18 @@
 import React from "react";
-import { StyledOverview } from "./Overview.styles";
+import { StyledOverview } from "./OverviewStyles";
 
-function Overview() {
-  // Dados fixos para o layout
-  const cityName = "Nome_da_Cidade";
-  const minTemperature = "XX°C";
-  const maxTemperature = "YY°C";
-  const weatherCondition = "Nublado";
-  const currentTemperature = "ZZ°C";
-
+export const Overview = ({
+  cityName,
+  weatherCondition,
+  minTemperature,
+  maxTemperature,
+  currentTemperature,
+}) => {
+  
   return (
     <StyledOverview>
       <div className="top-info">
-        <c>Agora: {cityName}</c>
+        <p>Agora: {cityName}</p>
         <p>{weatherCondition}</p>
       </div>
       <div className="bottom-info">
@@ -24,6 +24,4 @@ function Overview() {
       </div>
     </StyledOverview>
   );
-}
-
-export default Overview;
+};

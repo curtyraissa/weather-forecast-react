@@ -13,3 +13,9 @@ p {
 * {
   box-sizing: border-box;
 }
+
+.card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
