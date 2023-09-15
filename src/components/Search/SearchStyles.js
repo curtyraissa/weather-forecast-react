@@ -11,6 +11,7 @@ export const Input = styled.input`
   border-radius: 5px;
   flex: 1; //elemento preenche o espaço disponível no conteiner
   background-color: white;
+  color: black;
 `;
 
 export const Button = styled.button`
