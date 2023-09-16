@@ -10,7 +10,7 @@ export const Overview = ({
 }) => {
   
   return (
-    <StyledOverview>
+    <StyledOverview weatherCondition={weatherCondition}>
       <div className="top-info">
         <p>Agora: {cityName}</p>
         <p>{weatherCondition}</p>
