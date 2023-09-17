@@ -7,18 +7,18 @@ import { Graphic } from "../Graphic/Graphic";
 
 export const Search = () => {
   const [city, setCity] = useState(""); // Estado para armazenar a cidade digitada
-  const [cityData, setCityData] = useState(null); // Estado para armazenar os dados da cidade na rota weather
+  const [weatherData, setweatherData] = useState(null); // Estado para armazenar os dados da cidade na rota weather
   const [forecastData, setForecastData] = useState(null); // Estado para armazenar os dados da cidade na rota forecast
 
   const apiKey = "8d0416a7768b0006840da31e0af379a9";
 
-  const handleSearch = async () => {
+  const handleSearch = async () => { //chamar essa funcao ao clicar no button
     try {
       if (!city) {
         return; // Não faz nada se 'city' não estiver definida
       }
 
-      const [cityResponse, forecastResponse] = await Promise.all([
+      const [weatherResponse, forecastResponse] = await Promise.all([
         axios.get(
           `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
         ),
@@ -27,35 +27,32 @@ export const Search = () => {
         ),
       ]);
 
-      setCityData(cityResponse.data);
+      setweatherData(weatherResponse.data); 
 
       const chartData = forecastResponse.data.list.map(
         ({ main: { temp }, dt_txt }) => {
           const date = new Date(dt_txt);
-
           return {
             temp,
-            date: `${date.getDate()}/${date.getMonth() + 1}`, //TODO: Ajustar data
+            date: `${date.getDate()}/${date.getMonth() + 1}`, // Formatar data
           };
         }
       );
-
       setForecastData(chartData);
+
     } catch (error) {
       if (error.response) {
-        // Erro de resposta da API (por exemplo, erro 404)
-        console.error("Erro na resposta da API:", error.response.data);
+        // Erro de resposta da API (por exemplo: erro 404)
+        alert("Erro na resposta da API");
       } else if (error.request) {
-        // Erro na requisição para a API (por exemplo, falha de rede)
-        console.error("Erro na requisição para a API:", error.request);
+        // Erro na requisição para a API (por exemplo: falha de rede)
+        alert("Erro na requisição para a API");
       } else {
         // Erro desconhecido
-        console.error("Erro desconhecido:", error.message);
+        alert("Erro desconhecido");
       }
     }
   };
-
-  console.log("graaaaafico:", forecastData);
 
   return (
     <>
@@ -63,25 +60,26 @@ export const Search = () => {
         <Input
           type="text"
           placeholder="Digite o nome da cidade"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
+          value={city} // valor inicial de city que é ""
+          onChange={(e) => setCity(e.target.value)} // armazena o valor digitado e atribui a setCity
         />
         <Button onClick={handleSearch}>Buscar</Button>
       </StyledSearch>
 
-      {cityData && (
+      {weatherData && ( // renderiza Overview se for verdadeiro
         <Overview
-          cityName={cityData?.name}
+          cityName={weatherData?.name}
           weatherCondition={translateWeatherCondition(
-            cityData?.weather[0]?.main
+            weatherData?.weather[0]?.main
           )}
-          minTemperature={cityData?.main?.temp_min + "°C"}
-          maxTemperature={cityData?.main?.temp_max + "°C"}
-          currentTemperature={cityData?.main?.temp + "°C"}
+          minTemperature={weatherData?.main?.temp_min.toFixed(1) + "°C"}
+          maxTemperature={weatherData?.main?.temp_max.toFixed(1) + "°C"}
+          currentTemperature={weatherData?.main?.temp.toFixed(1) + "°C"}
         />
       )}
 
-      {forecastData && <Graphic data={forecastData} />}
+      {/* renderiza Graphic se for verdadeiro */}
+      {forecastData && <Graphic data={forecastData} />} 
     </>
   );
 };
