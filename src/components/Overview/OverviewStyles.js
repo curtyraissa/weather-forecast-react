@@ -13,34 +13,37 @@ const weatherColors = {
 
 export const StyledOverview = styled.div`
   background-color: ${(props) => {
-    const color = weatherColors[props.weatherCondition] || weatherColors.default;
+    const color =
+      weatherColors[props.weatherCondition] || weatherColors.default;
     return color;
   }};
 
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  margin-top: 10px;
+  margin: 10px 0;
   padding: 20px;
+  color: black;
+`;
 
-  .top-info {
-    display: flex;
-    justify-content: space-between;
-  }
+export const StyledTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
-  .bottom-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-  }
+export const StyledBottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+`;
 
-  .temperature-info {
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
-  }
+export const StyledTemperatures = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 15px;
+`;
 
-  .current-temperature {
-    font-size: 32px;
-  }
+export const StyledCurrentTemperature = styled.div`
+  font-size: 32px;
 `;

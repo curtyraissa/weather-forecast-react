@@ -1,5 +1,11 @@
 import React from "react";
-import { StyledOverview } from "./OverviewStyles";
+import {
+  StyledOverview,
+  StyledTop,
+  StyledBottom,
+  StyledTemperatures,
+  StyledCurrentTemperature,
+} from "./OverviewStyles";
 
 export const Overview = ({
   cityName,
@@ -8,20 +14,22 @@ export const Overview = ({
   maxTemperature,
   currentTemperature,
 }) => {
-  
+
   return (
     <StyledOverview weatherCondition={weatherCondition}>
-      <div className="top-info">
+      <StyledTop>
         <p>Agora: {cityName}</p>
         <p>{weatherCondition}</p>
-      </div>
-      <div className="bottom-info">
-        <div className="temperature-info">
+      </StyledTop>
+      <StyledBottom>
+        <StyledTemperatures>
           <p>Mínima: {minTemperature}</p>
           <p>Máxima: {maxTemperature}</p>
-        </div>
-        <p className="current-temperature">{currentTemperature}</p>
-      </div>
+        </StyledTemperatures>
+        <StyledCurrentTemperature>
+          {currentTemperature}
+        </StyledCurrentTemperature>
+      </StyledBottom>
     </StyledOverview>
   );
 };
