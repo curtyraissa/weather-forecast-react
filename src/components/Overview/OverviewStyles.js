@@ -1,32 +1,20 @@
 import styled from "styled-components";
 
-const TempToColor = {
-  Clear: "yellow",
+const weatherColors = {
+  "Céu aberto": "#FBE8A4",
+  Nublado: "#BFC1C3",
+  Chovendo: "#6A9EDA",
+  Nevando: "#EDEDED",
+  Neblina: "#EDEDED",
+  Tempestade: "#C4BDF3",
+  Chuviscando: "#A4E1E9",
+  default: "#E2504c",
 };
 
 export const StyledOverview = styled.div`
   background-color: ${(props) => {
-    console.log("COR", props);
-
-    const color = TempToColor[props.weatherCondition];
-
-    if (props.weatherCondition === "Clear") {
-      return "yellow";
-    } else if (props.weatherCondition === "Nublado") {
-      return "gray";
-      // } else if (props.weatherCondition == 'Chovendo') {
-      //   return "blue";
-      // } else if (props.weatherCondition == 'Nevando') {
-      //   return "lightgray";
-      // } else if (props.weatherCondition == 'Tempestade') {
-      //   return "purple";
-      // } else if (props.weatherCondition == 'Chuviscando') {
-      //   return "lightblue";
-      // } else if (props.weatherCondition == 'Neblina') {
-      //   return "lightgray";
-    } else {
-      return "red";
-    }
+    const color = weatherColors[props.weatherCondition] || weatherColors.default;
+    return color;
   }};
 
   display: flex;
