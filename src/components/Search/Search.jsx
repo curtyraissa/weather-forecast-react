@@ -10,7 +10,7 @@ export const Search = () => {
   const [weatherData, setweatherData] = useState(null); // Estado para armazenar os dados da cidade na rota weather
   const [forecastData, setForecastData] = useState(null); // Estado para armazenar os dados da cidade na rota forecast
 
-  const apiKey = "8d0416a7768b0006840da31e0af379a9";
+  const apiKey = process.env.VITE_API_KEY;
 
   const handleSearch = async () => { //chamar essa funcao ao clicar no button
     try {
