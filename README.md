@@ -20,7 +20,7 @@ An application for tracking weather forecasts by city.
 - Run the project:
     - npm run dev
 
-    Access the project in your browser at http://localhost:3000.
+    Access the project in your browser at http://localhost:5173/
 <hr/>
 
 ## 🛠 &nbsp;Tecnologies
